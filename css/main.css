@@ -1,0 +1,139 @@
+/* -------------------
+Page: conteneur et
+fioritures
+------------------- */
+body{
+	margin: 0 auto;
+	background: #333;
+}
+
+header h1 a, header h1 a:hover, h1, h2, h3{
+	color: #bf5930;
+}
+
+div#container{
+	width: 80%;
+	margin: auto;
+	color: #ffdc73;
+	background: #222;
+	padding: 4px;
+}
+
+header{
+	border-bottom: 1px solid black;
+	padding-bottom: 4px;
+}
+
+footer{
+	border-top: 1px solid black;
+	padding-top: 4px;
+	color: #bf8230;
+	text-shadow: 1px 1px 1px #000;
+}
+
+ul#heroes{
+	height: 1.2em;
+	font-size: 1.1em;
+	background: #444;
+	padding-left: 2px;
+}
+
+ul#heroes li{
+	float: left;
+	list-style: none;
+	margin-left: 0px;
+	margin-right: 15px;
+}
+
+ul#heroes a{
+	text-shadow: 1px 1px 1px black;
+}
+
+ul#stuff{
+	float: left;
+	width: 25%;
+	line-height: 1.2em;
+	padding: 0;
+	margin: 0px;
+	margin-bottom: 4px;
+}
+
+ul#stuff li{
+	list-style: none;
+	border-bottom: 1px solid #222;
+	padding: 0px 4px;
+}
+
+ul#stuff li a{
+	color: black;
+	text-decoration: none;
+}
+
+#stats{
+	float: left;
+	width: 25%;
+	padding-left: 1%;
+}
+
+#stats ul{
+	padding: 0;
+	margin: 0 0 4px;
+}
+
+#resists{
+	margin-left: 50%;
+	width: 25%;
+	padding: 0;
+}
+
+#stats ul li, #resists ul li{
+	list-style: none;
+}
+
+a{
+	color: #ffdb40;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #bfa430;
+}
+
+#calculateur{
+	clear: both;
+}
+
+h1, h2{
+	text-shadow: 1px 1px 1px black;
+}
+
+.error{
+	color: red;
+}
+
+footer{
+	clear: both;
+}
+
+/*	Couleur des objets	*/
+
+.item_green{
+	background: #00bf32;
+}
+
+.item_orange{
+	background: #bf6f30;
+}
+
+.item_yellow{
+	background: #ffd440;
+}
+.item_blue{
+	background: #4479d9;
+}
+.item_white{
+	background: white;
+}
+.item_grey{
+	background: #333;
+}
