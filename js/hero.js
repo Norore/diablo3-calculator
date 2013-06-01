@@ -1,15 +1,15 @@
-$('.hero').live('click', function() {
+$('body').on('click', 'a.hero', function() {
 	var hero = $(this).attr('id');
 	var battlename = $('#battlename').val();
 	var battleid = $('#battleid').val();
 	var url = profile + battlename + "-" + battleid + '/hero/' + hero + '?callback=?';
-	//console.log('Hero: ' + url );
+
 	$.getJSON(url, function(data){
 		//alert("Success!\n" + hero);
-		id = data.id; name = data.name; level = data.level;
-		classe = data.class; parangon = data.paragonLevel;
-		profileLink = '/hero/' + id;
-		output = '<h2>' + name + ', ' + classe + ' (' + level + ' - ' + parangon + ')</h2>';
+		var id = data.id; var name = data.name; var level = data.level;
+		var classe = data.class; var parangon = data.paragonLevel;
+		var profileLink = '/hero/' + id;
+		var output = '<h2>' + name + ', ' + classe + ' (' + level + ' - ' + parangon + ')</h2>';
 		
 		// équipement //
 		
@@ -126,7 +126,7 @@ $('.hero').live('click', function() {
 			var force = data.stats.strength;
 			output += '<li class="force">Force : ' + force + '</li>';
 			var dext = data.stats.dexterity;
-			output += '<li class="dext">Dextérité : ' + dext + '</li>';
+			output += '<li class="dext" title="' + dext + '">Dextérité : ' + dext + '</li>';
 			var vita = data.stats.vitality;
 			output += '<li class="vita">Vitalité : ' + vita + '</li>';
 			var intell = data.stats.intelligence;
@@ -142,7 +142,8 @@ $('.hero').live('click', function() {
 			output += '<li class="critChn"><abbr title="Chances de coups critiques">CCC</abbr> : ' + (Math.round(critChn*1000))/10  + '%</li>';
 			output += '</ul>';
 			
-			output += '<button id="calcul_cc_max">Calculer le dégât max</button>';
+			output += '<a id="calcul_cc_max">Calculer le dégât max</a><br>';
+			output += '<a id="calcul_esquive">Calculer l\'esquive</a>';
 			
 			output += '</div>';
 			output += '<div id="resists">',
@@ -153,18 +154,23 @@ $('.hero').live('click', function() {
 			output += '<li class="physicRes">Résistance physique : ' + physicRes + '</li>';
 // "fireResist" : 166,
 			var feuRes = data.stats.fireResist;
+			// feuRes = (feuRes+(intell*0.1));
 			output += '<li class="feuRes">Résistance feu : ' + feuRes + '</li>';
 // "coldResist" : 105,
 			var coldRes = data.stats.coldResist;
+			// coldRes = (coldRes+(intell*0.1));
 			output += '<li class="coldRes">Résistance froid : ' + coldRes + '</li>';
 // "lightningResist" : 105,
-			var sacreRes = data.stats.coldResist;
-			output += '<li class="sacreRes">Résistance sacré : ' + sacreRes + '</li>';
+			var foudRes = data.stats.lightningResist;
+			// foudRes = (foudRes+(intell*0.1));
+			output += '<li class="foudRes">Résistance foudre : ' + foudRes + '</li>';
 // "poisonResist" : 135,
 			var poisRes = data.stats.poisonResist;
+			// poisRes = (poisRes+(intell*0.1));
 			output += '<li class="poisRes">Résistance poison : ' + poisRes + '</li>';
 // "arcaneResist" : 144,
 			var arcaRes = data.stats.arcaneResist;
+			// arcaRes = (arcaRes+(intell*0.1));
 			output += '<li class="arcaRes">Résistance arcane : ' + arcaRes + '</li>';
 // "damageReduction" : 0.5386030077934265,
 			var dmgRed = data.stats.damageReduction;
@@ -186,5 +192,8 @@ $('.hero').live('click', function() {
 		}
 		$('div#hero').html(output).show();
 		
+		$('div#charts').hide();
+		$('div#calculateur').hide();
 	});
+
 });

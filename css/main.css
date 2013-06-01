@@ -103,12 +103,39 @@ a:hover{
 	clear: both;
 }
 
+#stats a{
+	color: white;
+}
+
+#stats a:hover{
+	color: #999;
+	text-shadow: 1px 1Px 1px black;
+}
+
 h1, h2{
 	text-shadow: 1px 1px 1px black;
 }
 
+.left{
+	float: left;
+	width: 49%;
+	padding: 2px;
+}
+.right{
+	float: right;
+	width: 49%;
+	padding: 0 2px;
+}
+
+#levels, #paragon{
+	margin: 0 2px;
+	color: white;
+}
+
 .error{
 	color: red;
+	background: #fdd;
+	padding: 0 2px;
 }
 
 footer{
