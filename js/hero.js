@@ -1,4 +1,4 @@
-$('body').on('click', 'a.hero', function() {
+$('body').on('click', 'span.hero', function() {
 	var hero = $(this).attr('id');
 	var battlename = $('#battlename').val();
 	var battleid = $('#battleid').val();

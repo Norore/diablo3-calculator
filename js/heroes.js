@@ -21,7 +21,8 @@ $('form').submit(function(event) {
 				dataLvl.push([d, data.heroes[d].level]);
 				dataPar.push([d, data.heroes[d].paragonLevel]);
 				profileLink = '/hero/' + id;
-				output += '<li><a href="#' + name + '-' + id + '" id="' + id + '" class="hero">' + name + '</a></li>';
+				//output += '<li><a href="#' + name + '-' + id + '" id="' + id + '" class="hero">' + name + '</a></li>';
+				output += '<li><span id="' + id + '" class="hero">' + name + '</span></li>';
 			}
 			output += '</ul>';
 			

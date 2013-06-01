@@ -45,7 +45,7 @@ ul#heroes li{
 	margin-right: 15px;
 }
 
-ul#heroes a{
+ul#heroes span.hero{
 	text-shadow: 1px 1px 1px black;
 }
 
@@ -90,12 +90,12 @@ ul#stuff li a{
 	list-style: none;
 }
 
-a{
+a, span.hero{
 	color: #ffdb40;
 	text-decoration: none;
 }
 
-a:hover{
+a:hover, span:hover.hero{
 	color: #bfa430;
 }
 
