@@ -1,6 +1,7 @@
 var profile = 'http://eu.battle.net/api/d3/profile/' ;
 var data_item = 'http://eu.battle.net/api/d3/data/';
 $('form').submit(function(event) {
+	$("div#img-stuff").hide();
 	// ne pas recharger la page
 	event.preventDefault();
 	var battlename = $('#battlename').val();

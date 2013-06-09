@@ -31,6 +31,8 @@ footer{
 	text-shadow: 1px 1px 1px #000;
 }
 
+/* liste des héros */
+
 ul#heroes{
 	height: 1.2em;
 	font-size: 1.1em;
@@ -49,45 +51,149 @@ ul#heroes span.hero{
 	text-shadow: 1px 1px 1px black;
 }
 
+/* fiche d'un héro */
+
+div#img-stuff{
+	width: 994px;
+	height: 645px;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+div#img-stuff img{
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+div#img-stuff span#span-head{
+	position: absolute;
+	top: 159px;
+	right: 333px;
+}
+
+div#img-stuff div#head{
+	position: absolute;
+	top: 128px;
+	right: 334px;
+}
+
+span#span-head{
+	display: inline-block;
+	height: 64px;
+	width: 64px;
+}
+
+div#img-stuff div#neck{
+	position: absolute;
+	top: 198px;
+	right: 254px;
+}
+
+div#img-stuff div#shoulders{
+	position: absolute;
+	top: 163px;
+	right: 417px;
+}
+
+div#img-stuff div#torso{
+	position: absolute;
+	top: 205px;
+	right: 324px;
+}
+
+div#img-stuff div#bracers{
+	position: absolute;
+	top: 263px;
+	right: 229px;
+}
+
+div#img-stuff div#hands{
+	position: absolute;
+	top: 263px;
+	right: 443px;
+}
+
+div#img-stuff div#rightFinger{
+	position: absolute;
+	top: 370px;
+	right: 227px;
+}
+
+div#img-stuff div#leftFinger{
+	position: absolute;
+	top: 370px;
+	right: 442px;
+}
+
+div#img-stuff div#belt{
+	position: absolute;
+	top: 332px;
+	right: 333px;
+}
+
+div#img-stuff div#legs{
+	position: absolute;
+	top: 367px;
+	right: 333px;
+}
+
+div#img-stuff div#feet{
+	position: absolute;
+	top: 458px;
+	right: 333px;
+}
+
+div#img-stuff div#mainHand{
+	position: absolute;
+	top: 435px;
+	right: 442px;
+}
+
+div#img-stuff div#offHand{
+	position: absolute;
+	top: 435px;
+	right: 227px;
+}
+
 ul#stuff{
-	float: left;
-	width: 25%;
-	line-height: 1.2em;
-	padding: 0;
-	margin: 0px;
-	margin-bottom: 4px;
+width: 25%;
+line-height: 1.2em;
+padding: 0;
+margin: 0px;
+margin-bottom: 4px;
 }
 
 ul#stuff li{
-	list-style: none;
-	border-bottom: 1px solid #222;
-	padding: 0px 4px;
+list-style: none;
+border-bottom: 1px solid #222;
+padding: 0px 4px;
 }
 
 ul#stuff li a{
-	color: black;
-	text-decoration: none;
+color: black;
+text-decoration: none;
 }
 
 #stats{
-	float: left;
-	width: 25%;
-	padding-left: 1%;
+float: left;
+width: 25%;
+padding-left: 1%;
 }
 
 #stats ul{
-	padding: 0;
-	margin: 0 0 4px;
+padding: 0;
+margin: 0 0 4px;
 }
 
 #resists{
-	margin-left: 50%;
-	width: 25%;
-	padding: 0;
+margin-left: 50%;
+width: 25%;
+padding: 0;
 }
 
 #stats ul li, #resists ul li{
-	list-style: none;
+list-style: none;
 }
 
 a, span.hero{
@@ -144,50 +250,37 @@ footer{
 
 /*	Couleur des objets	*/
 
-.item_green{
-	background: #00bf32;
-}
-img.item_green{
+span.item_green{
 	background: linear-gradient(grey, #00bf32);
 	border: 1px solid #00bf32;
 	border-radius: 4px;
 }
-.item_orange{
-	background: #bf6f30;
-}
-img.item_orange{
+
+span.item_orange{
 	background: linear-gradient(grey, #bf6f30);
 	border: 1px solid #bf6f30;
 	border-radius: 4px;
 }
-.item_yellow{
-	background: #ffd440;
-}
-img.item_yellow{
+
+span.item_yellow{
 	background: linear-gradient(grey, #ffd440);
 	border: 1px solid #ffd440;
 	border-radius: 4px;
 }
-.item_blue{
-	background: #4479d9;
-}
-img.item_blue{
+
+span.item_blue{
 	background: linear-gradient(grey, #4479d9);
 	border: 1px solid #4478d9;
 	border-radius: 4px;
 }
-.item_white{
-	background: white;
-}
-img.item_white{
+
+span.item_white{
 	background: linear-gradiant(grey, white);
 	border: 1px solid white;
 	border-radius: 4px;
 }
-.item_grey{
-	background: #333;
-}
-img.item_grey{
+
+span.item_grey{
 	background: linear-gradient(grey, #333);
 	border: 1px solid #333;
 	border-radius: 4px;

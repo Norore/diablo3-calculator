@@ -9,52 +9,76 @@ $('body').on('click', 'span.hero', function() {
 		//alert("Success!\n" + hero);
 		var id = data.id; var name = data.name; var level = data.level;
 		var classe = data.class; var parangon = data.paragonLevel;
+		var imgbg = "http://eu.battle.net/d3/static/images/profile/hero/paperdoll/";
 		var profileLink = '/hero/' + id;
-		var tooltipurl = "http://eu.battle.net/d3/fr/tooltip/";
+		var tooltipurl = "http://eu.battle.net/d3/fr/";
 		var output = '<h2>' + name + ', ' + classe + ' (' + level + ' - ' + parangon + ')</h2>';
 		
 		// équipement //
 		
 		output += '<ul id="stuff">';
 		
+		// classe et genre
+		if ( data.class ){
+			imgbg += data.class;
+		}
+		if ( data.gender >= 0 ){
+			if ( parseInt(data.gender) == 1 ){
+				imgbg += "-female.jpg";
+			} else {
+				imgbg += "-male.jpg";
+			}
+		}
+
 		// casque //
 		if ( data.items.head ){
-			var namehelmet = data.items.head.name; var colorhelmet = data.items.head.displayColor;
-			var itemhelmet = data.items.head.tooltipParams; var tooltiphelmet = data_item + itemhelmet;
-			var iconhelmet = data.items.head.icon; var jstooltiphelmet = tooltipurl + itemhelmet;
-			output += '<li><a href="' + jstooltiphelmet + '" title="'+ namehelmet +'"><img class="item_' + colorhelmet + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconhelmet + '.png" alt="' + namehelmet + '" /></a></li>';
+			var namehead = data.items.head.name; var colorhead = data.items.head.displayColor;
+			var itemhead = data.items.head.tooltipParams; var tooltiphead = data_item + itemhead;
+			var iconhead = data.items.head.icon; var jstooltiphead = tooltipurl + itemhead;
+			
+			$("div#head").html('<a href="' + tooltipurl + "item/" + iconhead + '" data-d3tooltip="' + jstooltiphead + '" title="'+ namehead +'"><img src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconhead + '.png" alt="' + namehead + '" /></a>');
+			if ( $("span#span-head").attr("class") ){
+				$("span#span-head").removeAttr("class");
+				$("span#span-head").addClass("item_"+colorhead);
+			} else {
+				$("span#span-head").addClass("item_"+colorhead);
+			}
 		}
 		
 		// amulette //
 		if ( data.items.neck ){
-			var nameamu = data.items.neck.name; var coloramu = data.items.neck.displayColor;
-			var itemamu = data.items.neck.tooltipParams; var tooltipamu = data_item + itemamu;
-			var iconamu = data.items.neck.icon; var jstooltipamu = tooltipurl + itemamu;
-			output += '<li><a href="' + tooltipamu + '" title="' + nameamu + '"><img class="item_' + coloramu + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconamu + '.png" alt="' + nameamu + '" /></a></li>';
+			var nameneck = data.items.neck.name; var colorneck = data.items.neck.displayColor;
+			var itemneck = data.items.neck.tooltipParams; var tooltipamu = data_item + itemneck;
+			var iconneck = data.items.neck.icon; var jstooltipneck = tooltipurl + itemneck;
+			
+			$("div#neck").html('<a href="' + tooltipurl + "item/" + iconneck + '" data-d3tooltip="' + jstooltipneck + '" title="'+ nameneck +'"><img class="item_' + colorneck + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconneck + '.png" alt="' + nameneck + '" /></a>');
 		}
 		
 		// épaules //
 		if ( data.items.shoulders ){
-			var nameshoulder = data.items.shoulders.name; var colorshoulder = data.items.shoulders.displayColor;
-			var itemshoulder = data.items.shoulders.tooltipParams; var tooltipshoulder = data_item + itemshoulder;
-			var iconshoulder = data.items.shoulders.icon; var jstooltipshoulder = tooltipurl + itemshoulder;
-			output += '<li><a href="' + tooltipshoulder + '" title="' + nameshoulder + '"><img class="item_' + colorshoulder + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconshoulder + '.png" alt="' + nameshoulder + '" /></a></li>';
+			var nameshoulders = data.items.shoulders.name; var colorshoulders = data.items.shoulders.displayColor;
+			var itemshoulders = data.items.shoulders.tooltipParams; var tooltipshoulders = data_item + itemshoulders;
+			var iconshoulders = data.items.shoulders.icon; var jstooltipshoulders = tooltipurl + itemshoulders;
+			
+			$("div#shoulders").html('<a href="' + tooltipurl + "item/" + iconshoulders + '" data-d3tooltip="' + jstooltipshoulders + '" title="'+ nameshoulders +'"><img class="item_' + colorshoulders + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconshoulders + '.png" alt="' + nameshoulders + '" /></a>');
 		}
 		
-		// torse //
+		// torso //
 		if ( data.items.torso ){
-			var nametorse = data.items.torso.name; var colortorse = data.items.torso.displayColor;
-			var itemtorse = data.items.torso.tooltipParams; var tooltiptorse = data_item + itemtorse;
-			var icontorse = data.items.torso.icon; var jstooltiptorse = tooltipurl + itemtorse;
-			output += '<li><a href="' + tooltiptorse + '" title="' + nametorse + '"><img class="item_' + colortorse + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + icontorse + '.png" alt="' + nametorse + '" /></a></li>';
+			var nametorso = data.items.torso.name; var colortorso = data.items.torso.displayColor;
+			var itemtorso = data.items.torso.tooltipParams; var tooltiptorso = data_item + itemtorso;
+			var icontorso = data.items.torso.icon; var jstooltiptorso = tooltipurl + itemtorso;
+			
+			$("div#torso").html('<a href="' + tooltipurl + "item/" + icontorso + '" data-d3tooltip="' + jstooltiptorso + '" title="'+ nametorso +'"><img class="item_' + colortorso + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + icontorso + '.png" alt="' + nametorso + '" /></a>');
 		}
 		
 		// brassards //
 		if ( data.items.bracers ){
 			var namebracers = data.items.bracers.name; var colorbracers = data.items.bracers.displayColor;
 			var itembracers = data.items.bracers.tooltipParams; var tooltipbracers = data_item + itembracers;
-			var iconbracers = data.items.bracers.icon; var jstooltipsbracers = tooltipurl + itembracers;
-			output += '<li><a href="' + tooltipbracers + '" title="' + namebracers + '"><img class="item_' + colorbracers + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconbracers + '.png" alt="' + namebracers + '" /></a></li>';
+			var iconbracers = data.items.bracers.icon; var jstooltipbracers = tooltipurl + itembracers;
+			
+			$("div#bracers").html('<a href="' + tooltipurl + "item/" + iconbracers + '" data-d3tooltip="' + jstooltipbracers + '" title="'+ namebracers +'"><img class="item_' + colorbracers + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconbracers + '.png" alt="' + namebracers + '" /></a>');
 		}
 		
 		// gants //
@@ -62,7 +86,8 @@ $('body').on('click', 'span.hero', function() {
 			var namehands = data.items.hands.name; var colorhands = data.items.hands.displayColor;
 			var itemhands = data.items.hands.tooltipParams; var tooltiphands = data_item + itemhands;
 			var iconhands = data.items.hands.icon; var jstooltiphands = tooltipurl + itemhands;
-			output += '<li><a href="' + tooltiphands + '" title="' + namehands + '"><img class="item_' + colorhands + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconhands + '.png" alt="' + namehands + '" /></a></li>';
+			
+			$("div#hands").html('<a href="' + tooltipurl + "item/" + iconhands + '" data-d3tooltip="' + jstooltiphands + '" title="'+ namehands +'"><img class="item_' + colorhands + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconhands + '.png" alt="' + namehands + '" /></a>');
 		}
 		
 		// bague droite //
@@ -70,7 +95,8 @@ $('body').on('click', 'span.hero', function() {
 			var namerf = data.items.rightFinger.name; var colorrf = data.items.rightFinger.displayColor;
 			var itemrf = data.items.rightFinger.tooltipParams; var tooltiprf = data_item + itemrf;
 			var iconrf = data.items.rightFinger.icon; var jstooltiprf = tooltipurl + itemrf;
-			output += '<li><a href="' + tooltiprf + '" title="' + namerf + '"><img class="item_' + colorrf + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconrf + '.png" alt="' + namerf + '" /></a></li>';
+			
+			$("div#rightFinger").html('<a href="' + tooltipurl + "item/" + iconrf + '" data-d3tooltip="' + jstooltiprf + '" title="'+ namerf +'"><img class="item_' + colorrf + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconrf + '.png" alt="' + namerf + '" /></a>');
 		}
 		
 		// bague gauche //
@@ -78,7 +104,8 @@ $('body').on('click', 'span.hero', function() {
 			var namelf = data.items.leftFinger.name; var colorlf = data.items.leftFinger.displayColor;
 			var itemlf = data.items.leftFinger.tooltipParams; var tooltiplf = data_item + itemlf;
 			var iconlf = data.items.leftFinger.icon; var jstooltiplf = tooltipurl + itemlf;
-			output += '<li><a href="' + tooltiplf + '" title="' + namelf + '"><img class="item_' + colorlf + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconlf + '.png" alt="' + namelf + '" /></a></li>';
+			
+			$("div#leftFinger").html('<a href="' + tooltipurl + "item/" + iconlf + '" data-d3tooltip="' + jstooltiplf + '" title="'+ namelf +'"><img class="item_' + colorlf + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconlf + '.png" alt="' + namelf + '" /></a>');
 		}
 		
 		// ceinture //
@@ -86,7 +113,8 @@ $('body').on('click', 'span.hero', function() {
 			var namebelt = data.items.waist.name; var colorbelt = data.items.waist.displayColor;
 			var itembelt = data.items.waist.tooltipParams; var tooltipbelt = data_item + itembelt;
 			var iconbelt = data.items.waist.icon; var jstooltipbelt = tooltipurl + itembelt;
-			output += '<li><a href="' + tooltipbelt + '" title="' + namebelt + '"><img class="item_' + colorbelt + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconbelt + '.png" alt="' + namebelt + '" /></a></li>';
+			
+			$("div#belt").html('<a href="' + tooltipurl + "item/" + iconbelt + '" data-d3tooltip="' + jstooltipbelt + '" title="'+ namebelt +'"><img class="item_' + colorbelt + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconbelt + '.png" alt="' + namebelt + '" /></a>');
 		}
 		
 		// jambes //
@@ -94,15 +122,17 @@ $('body').on('click', 'span.hero', function() {
 			var namelegs = data.items.legs.name; var colorlegs = data.items.legs.displayColor;
 			var itemlegs = data.items.legs.tooltipParams; var tooltiplegs = data_item + itemlegs;
 			var iconlegs = data.items.legs.icon; var jstooltiplegs = tooltipurl + itemlegs;
-			output += '<li><a href="' + tooltiplegs + '" title="' + namelegs + '"><img class="item_' + colorlegs + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconlegs + '.png" alt="' + namelegs + '" /></a></li>';
+			
+			$("div#legs").html('<a href="' + tooltipurl + "item/" + iconlegs + '" data-d3tooltip="' + jstooltiplegs + '" title="'+ namelegs +'"><img class="item_' + colorlegs + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconlegs + '.png" alt="' + namelegs + '" /></a>');
 		}
 		
 		// chaussures //
 		if ( data.items.feet ){
-			var namepied = data.items.feet.name; var colorpied = data.items.feet.displayColor;
-			var itempied = data.items.feet.tooltipParams; var tooltippied = data_item + itempied;
-			var iconpied = data.items.feet.icon; var jstooltippied = tooltipurl + itempied;
-			output += '<li><a href="' + tooltippied + '" title="' + namepied + '"><img class="item_' + colorpied + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconpied + '.png" alt="' + namepied + '" /></a></li>';
+			var namefeet = data.items.feet.name; var colorfeet = data.items.feet.displayColor;
+			var itemfeet = data.items.feet.tooltipParams; var tooltipfeet = data_item + itemfeet;
+			var iconfeet = data.items.feet.icon; var jstooltipfeet = tooltipurl + itemfeet;
+			
+			$("div#feet").html('<a href="' + tooltipurl + "item/" + iconfeet + '" data-d3tooltip="' + jstooltipfeet + '" title="'+ namefeet +'"><img class="item_' + colorfeet + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconfeet + '.png" alt="' + namefeet + '" /></a>');
 		}
 		
 		// main droite //
@@ -110,7 +140,8 @@ $('body').on('click', 'span.hero', function() {
 			var namemH = data.items.mainHand.name; var colormH = data.items.mainHand.displayColor;
 			var itemmH = data.items.mainHand.tooltipParams; var tooltipmH = data_item + itemmH;
 			var iconmH = data.items.mainHand.icon; var jstooltipmH = tooltipurl + itemmH;
-			output += '<li><a href="' + tooltipmH + '" title="' + namemH + '"><img class="item_' + colormH + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconmH + '.png" alt="' + namemH + '" /></a></li>';
+			
+			$("div#mainHand").html('<a href="' + tooltipurl + "item/" + iconmH + '" data-d3tooltip="' + jstooltipmH + '" title="'+ namemH +'"><img class="item_' + colormH + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconmH + '.png" alt="' + namemH + '" /></a>');
 		}
 		
 		// main gauche //
@@ -118,7 +149,8 @@ $('body').on('click', 'span.hero', function() {
 			var nameoH = data.items.offHand.name; var coloroH = data.items.offHand.displayColor;
 			var itemoH = data.items.offHand.tooltipParams; var tooltipoH = data_item + itemoH;
 			var iconoH = data.items.offHand.icon; var jstooltipoH = tooltipurl + itemoH;
-			output += '<li><a href="' + tooltipoH + '" title="' + nameoH + '"><img class="item_' + coloroH + '"src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconoH + '.png" alt="' + nameoH + '" /></a></li>';
+			
+			$("div#offHand").html('<a href="' + tooltipurl + "item/" + iconoH + '" data-d3tooltip="' + jstooltipoH + '" title="'+ nameoH +'"><img class="item_' + coloroH + '" src="http://eu.media.blizzard.com/d3/icons/items/large/' + iconoH + '.png" alt="' + nameoH + '" /></a>');
 		}
 		
 		output += '</ul>';
@@ -204,6 +236,8 @@ $('body').on('click', 'span.hero', function() {
 			output += '</div>';
 		}
 		$('div#hero').html(output).show();
+		$("div#img-stuff").css("background-image", "url("+imgbg+")");
+		$("div#img-stuff").show();
 		
 		$('div#charts').hide();
 		$('div#calculateur').hide();
